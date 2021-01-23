@@ -29,12 +29,13 @@ function run() {
 
     const six = new Date(start.getTime() + (6 * 60 * 60 * 1000))
     const twelve = new Date(start.getTime() + (12 * 60 * 60 * 1000))
+    // const twelve = new Date(start.getTime() + (12 * 60 * 60 * 1000) + (23 * 60 * 1000))
     const eighteen = new Date(start.getTime() + (18 * 60 * 60 * 1000))
     const newDay = new Date(start.getTime() + (24 * 60 * 60 * 1000))
     const times = [six, twelve, eighteen, newDay]
 
     for (const time of times) {
-        if ((time - now) >= 0) {
+        if ((time - now) > 0) {
             setTimeout(exec, time - now - 500)
             console.log('will run in ' + ((time - now - 500) / 1000 / 60 / 60));
             break;
@@ -50,5 +51,5 @@ function exec() {
             chrome.tabs.executeScript(tab.id, { file: "bump.js" });
         })
     }
-    run()
+    setTimeout(run, 5000);
 }
