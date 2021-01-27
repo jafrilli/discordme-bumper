@@ -2,6 +2,7 @@
 chrome.runtime.onInstalled.addListener(() => {
     // setup interval
     localStorage.setItem("active", "true")
+    run()
 })
 
 chrome.runtime.onMessage.addListener((message) => {
