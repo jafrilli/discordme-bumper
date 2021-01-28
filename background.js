@@ -37,8 +37,8 @@ function run() {
 
     for (const time of times) {
         if ((time - now) > 0) {
-            setTimeout(exec, time - now - 950)
-            console.log('will run in ' + ((time - now - 950) / 1000 / 60 / 60));
+            setTimeout(exec, time - now - 1000)
+            console.log('will run in ' + ((time - now - 1000) / 1000 / 60 / 60));
             break;
         }
     }
